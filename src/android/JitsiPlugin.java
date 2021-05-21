@@ -116,7 +116,7 @@ public class JitsiPlugin extends CordovaPlugin
   }
 
   private void join(final String serverUrl, final String roomId, final Boolean audioOnly, final String token) {
-    Log.e(TAG, "join called! Server: " + serverUrl + ", room : " + roomId, ", token : " + token);
+    Log.e(TAG, "join called! Server: " + serverUrl + ", room : " + roomId);
 
     cordova.getActivity().runOnUiThread(new Runnable() {
       public void run() {
