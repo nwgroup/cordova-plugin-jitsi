@@ -58,12 +58,21 @@ public class JitsiPlugin extends CordovaPlugin
 
         _callback = callbackContext;
 
+        Log.e(TAG, "ANDRESF: PASA");
+
         if (action.equals("join")) {
-            String serverUrl = args.getString(0);
-            String roomId = args.getString(1);
-            Boolean audioOnly = args.getBoolean(2);
-            String room = args.getString(3);
-            this.join(serverUrl, roomId, audioOnly, room);
+            try {
+
+                String serverUrl = args.getString(0);
+                String roomId = args.getString(1);
+                Boolean audioOnly = args.getBoolean(2);
+                Log.e(TAG, "ANDRESF: PASA 68");
+                String room = args.getString(3);
+                this.join(serverUrl, roomId, audioOnly, room);
+            } catch (Exception e) {
+                Log.e(TAG, e.getMessage());
+            }
+
             return true;
         } else if (action.equals("destroy")) {
             this.destroy(callbackContext);
@@ -114,8 +123,9 @@ public class JitsiPlugin extends CordovaPlugin
         }
     }
 
-    private void join(final String serverUrl, final String roomId, final Boolean audioOnly, final String room) {
+    private void join(final String serverUrl, final String roomId, final Boolean audioOnly, final String token) {
         Log.e(TAG, "join called! Server: " + serverUrl + ", room : " + roomId);
+        Log.e(TAG, token);
 
         cordova.getActivity().runOnUiThread(new Runnable() {
             public void run() {
@@ -132,6 +142,7 @@ public class JitsiPlugin extends CordovaPlugin
                         .setRoom(serverUrlObject.getProtocol() + "://" + serverUrlObject.getHost() + "/" + roomId)
                         .setSubject(" ")
                         //.setToken("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJud19hcHBfdmlkZW8iLCJyb29tIjoidXNlcmNoYXQ1NThkaXJlY2Npb25uZXR3b29kc25ldHRlc3RpbmduZXR3b29kc25ldDExMjMxNDQiLCJleHAiOjE5MzcwOTEwNTgsInN1YiI6Im1lZXQuZ3J1cG9udy5jb20iLCJhdWQiOiJud19hcHBfc2VjcmV0IiwibW9kZXJhdG9yIjoidHJ1ZSIsIm9wZW5CcmlkZ2VDaGFubmVsIjoidHJ1ZSIsImNvbnRleHQiOnsidXNlciI6eyJhdmF0YXIiOiIiLCJuYW1lIjoiIiwiZW1haWwiOiIiLCJpZCI6IiJ9fX0.qWeB2ogpPz7z_i9vbuzEfoJ4Xi3Lrq-NDmghjeALRjg")
+//                        .setToken(token)
                         .setAudioOnly(audioOnly)
                         .setFeatureFlag("chat.enabled", false)
                         .setFeatureFlag("invite.enabled", false)
