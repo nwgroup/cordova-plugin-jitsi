@@ -142,7 +142,7 @@ public class JitsiPlugin extends CordovaPlugin
                         .setRoom(serverUrlObject.getProtocol() + "://" + serverUrlObject.getHost() + "/" + roomId)
                         .setSubject(" ")
                         //.setToken("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJud19hcHBfdmlkZW8iLCJyb29tIjoidXNlcmNoYXQ1NThkaXJlY2Npb25uZXR3b29kc25ldHRlc3RpbmduZXR3b29kc25ldDExMjMxNDQiLCJleHAiOjE5MzcwOTEwNTgsInN1YiI6Im1lZXQuZ3J1cG9udy5jb20iLCJhdWQiOiJud19hcHBfc2VjcmV0IiwibW9kZXJhdG9yIjoidHJ1ZSIsIm9wZW5CcmlkZ2VDaGFubmVsIjoidHJ1ZSIsImNvbnRleHQiOnsidXNlciI6eyJhdmF0YXIiOiIiLCJuYW1lIjoiIiwiZW1haWwiOiIiLCJpZCI6IiJ9fX0.qWeB2ogpPz7z_i9vbuzEfoJ4Xi3Lrq-NDmghjeALRjg")
-//                        .setToken(token)
+                        .setToken(token)
                         .setAudioOnly(audioOnly)
                         .setFeatureFlag("chat.enabled", false)
                         .setFeatureFlag("invite.enabled", false)
